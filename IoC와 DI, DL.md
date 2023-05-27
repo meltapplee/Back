@@ -43,7 +43,7 @@ Bean(빈 객체): Spring IOC컨테이너가 관리하는 자바 객체
 - 생성자를 통한 주입
     
     <aside>
-    <img src="https://www.notion.so/icons/expand_gray.svg" alt="https://www.notion.so/icons/expand_gray.svg" width="40px" /> **특징**
+    🌟 **특징**
     
     - 생성자 호출 시점에 **1번만 호출되는 것을 보장한다**
     - **불변과 필수** 의존 관계에 사용한다.
@@ -53,7 +53,7 @@ Bean(빈 객체): Spring IOC컨테이너가 관리하는 자바 객체
 - setter 주입(수정자 주입)
     
     <aside>
-    <img src="https://www.notion.so/icons/expand_gray.svg" alt="https://www.notion.so/icons/expand_gray.svg" width="40px" /> **특징**
+    🌟 **특징**
     
     - 한번에 여러 필드를 주입 받을 수 있다
     - 일반적으로 사용하지는 않는다
@@ -63,7 +63,7 @@ Bean(빈 객체): Spring IOC컨테이너가 관리하는 자바 객체
 - 필드를 통한 주입
     
     <aside>
-    <img src="https://www.notion.so/icons/expand_gray.svg" alt="https://www.notion.so/icons/expand_gray.svg" width="40px" /> **특징**
+    🌟 **특징**
     
     - 코드가 간결해진다
     - DI프레임워크가 없으면 아무것도 할 수 없다
