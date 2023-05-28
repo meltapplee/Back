@@ -13,8 +13,6 @@
 
 Java 프로그램 ↔ JDBC 서버 ↔ JDBC 드라이버 ↔ DB
 
-![image.png](JDBC%20409f91256c9a42d5830fbba4623515f4/image.png)
-
 ---
 
 **JDBC 드라이버**
