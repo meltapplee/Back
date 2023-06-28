@@ -43,10 +43,11 @@
 
 </aside>
 
-### SQL 쿼리문(질의문)
+### 💬SQL 쿼리문(질의문)
 
-<aside>
-<img src="https://www.notion.so/icons/language_gray.svg" alt="https://www.notion.so/icons/language_gray.svg" width="40px" /> **SHOW**- 데이터 베이스 확인
+<aside> 
+  
+**show**- 데이터 베이스 확인
 
 **CEATE**- 데이터 베이스 새로 생성
 

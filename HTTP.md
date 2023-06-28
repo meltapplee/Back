@@ -68,7 +68,7 @@ HTTP에서 클라이언트가 보낸 요청에 대한 서버의 응답코드
 ### 특성
 
 <aside>
-<img src="https://www.notion.so/icons/star_gray.svg" alt="https://www.notion.so/icons/star_gray.svg" width="40px" /> **HTTP의 특성**
+**HTTP의 특성**
 
 **비연결성**- 클라이언트가 요청 시 서버와 연결을 맺고, 응답을 마치면 연결을 끊어버리는 성질
 
