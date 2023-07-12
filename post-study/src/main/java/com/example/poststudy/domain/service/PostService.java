@@ -20,4 +20,12 @@ public class PostService {
                 .content(request.getContent())
                 .build()).getId();
     }
+
+    @Transactional
+    public Long update(Long id, PostRequest request) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("존재하지 않는 글 입니다."));
+        post.update(request.getTitle(), request.getContent());
+        return post.getId();
+    }
 }

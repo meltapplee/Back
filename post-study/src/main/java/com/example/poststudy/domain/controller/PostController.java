@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @RequestMapping("/post")
 @RequiredArgsConstructor
@@ -18,5 +19,10 @@ public class PostController {
     @ResponseStatus(HttpStatus.CREATED)
     public Long create(@RequestBody @Valid PostRequest request) {
         return postService.create(request);
+    }
+
+    @PutMapping("/{id}")
+    public Long update(@PathVariable @NotNull Long id, @RequestBody @Valid PostRequest request) {
+        return postService.update(id, request);
     }
 }
