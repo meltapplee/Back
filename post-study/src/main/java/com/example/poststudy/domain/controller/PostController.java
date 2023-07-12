@@ -1,8 +1,10 @@
 package com.example.poststudy.domain.controller;
 
 import com.example.poststudy.domain.dto.request.PostRequest;
+import com.example.poststudy.domain.dto.response.PostListResponse;
 import com.example.poststudy.domain.service.PostService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,5 +32,10 @@ public class PostController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable @NotNull Long id) {
         postService.delete(id);
+    }
+
+    @GetMapping
+    public PostListResponse getAllPost(Pageable page) {
+        return postService.getAllPost(page);
     }
 }
