@@ -52,4 +52,16 @@ public class PostService {
                         .createDate(post.getCreateDate())
                         .build()).collect(Collectors.toList()));
     }
+
+    @Transactional
+    public PostListResponse findByTitle(String title, Pageable page){
+        Page<Post> posts = postRepository.findAllByTitleContainingOrderByCreateDateDesc(title, page);
+
+        return new PostListResponse(posts.getTotalPages(),
+                posts.stream().map(post -> PostListResponse.PostResponse.builder()
+                        .id(post.getId())
+                        .title(post.getTitle())
+                        .createDate(post.getCreateDate())
+                        .build()).collect(Collectors.toList()));
+    }
 }

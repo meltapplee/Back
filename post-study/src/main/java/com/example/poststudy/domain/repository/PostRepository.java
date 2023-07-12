@@ -7,4 +7,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PostRepository extends CrudRepository<Post, Long> {
     Page<Post> findAllByOrderByCreateDateDesc(Pageable page);
+    Page<Post> findAllByTitleContainingOrderByCreateDateDesc(String title, Pageable page);
 }

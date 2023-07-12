@@ -38,4 +38,9 @@ public class PostController {
     public PostListResponse getAllPost(Pageable page) {
         return postService.getAllPost(page);
     }
+
+    @GetMapping("/search")
+    public PostListResponse findByTitle(@RequestParam(value = "title") String title, Pageable page) {
+        return  postService.findByTitle(title, page);
+    }
 }
