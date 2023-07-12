@@ -2,6 +2,7 @@ package com.example.poststudy.domain.controller;
 
 import com.example.poststudy.domain.dto.request.PostRequest;
 import com.example.poststudy.domain.dto.response.PostListResponse;
+import com.example.poststudy.domain.dto.response.PostResponse;
 import com.example.poststudy.domain.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -42,5 +43,10 @@ public class PostController {
     @GetMapping("/search")
     public PostListResponse findByTitle(@RequestParam(value = "title") String title, Pageable page) {
         return  postService.findByTitle(title, page);
+    }
+
+    @GetMapping("/{id}")
+    public PostResponse getPostById(@PathVariable @NotNull Long id){
+        return postService.getPostById(id);
     }
 }

@@ -2,6 +2,7 @@ package com.example.poststudy.domain.service;
 
 import com.example.poststudy.domain.dto.request.PostRequest;
 import com.example.poststudy.domain.dto.response.PostListResponse;
+import com.example.poststudy.domain.dto.response.PostResponse;
 import com.example.poststudy.domain.entity.Post;
 import com.example.poststudy.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
@@ -53,7 +54,7 @@ public class PostService {
                         .build()).collect(Collectors.toList()));
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public PostListResponse findByTitle(String title, Pageable page){
         Page<Post> posts = postRepository.findAllByTitleContainingOrderByCreateDateDesc(title, page);
 
@@ -63,5 +64,16 @@ public class PostService {
                         .title(post.getTitle())
                         .createDate(post.getCreateDate())
                         .build()).collect(Collectors.toList()));
+    }
+
+    @Transactional(readOnly = true)
+    public PostResponse getPostById(Long id){
+        Post post = postRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 글 입니다."));
+        return PostResponse.builder()
+                .title(post.getTitle())
+                .content(post.getContent())
+                .createDate(post.getCreateDate())
+                .build();
     }
 }
