@@ -28,4 +28,11 @@ public class PostService {
         post.update(request.getTitle(), request.getContent());
         return post.getId();
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Post post = postRepository.findById(id)
+                .orElseThrow(()-> new IllegalArgumentException("존재하지 않는 글 입니다."));
+        postRepository.delete(post);
+    }
 }
