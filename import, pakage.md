@@ -25,7 +25,7 @@ package 패키지이름;
 
 ### 패키지 추가하기
 
-![image.png](import,%20pakage%208eb6b783cb3149a9b0a1114bdd9454a2/image.png)
+![https://velog.velcdn.com/images/hyun_ha/post/52b84a77-5c68-4308-9fb9-7adac7df8ce8/image.PNG](https://velog.velcdn.com/images/hyun_ha/post/52b84a77-5c68-4308-9fb9-7adac7df8ce8/image.PNG)
 
 패키지가 상, 하위로 구부되어있다면 .을 사용하여 표현한다
 
