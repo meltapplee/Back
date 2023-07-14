@@ -27,8 +27,7 @@ URI나 HTTP를 통한 통신 매개체
 1. **행위(VERB)**- HTTP METHOD
 2. **표현(REPRESENTATIONS, 클라이언트와 서버가 데이터를 주고받는 형태)**- JSON, XML
 
-![99CA713E5BF4ABB804.jpg](Rest%20API%209ee6d37707ae416eb6dc4c7e0b69bfae/99CA713E5BF4ABB804.jpg)
-
+![https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99CA713E5BF4ABB804](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99CA713E5BF4ABB804)
 </aside>
 
 ### 작동 방식
