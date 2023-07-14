@@ -25,6 +25,8 @@
 2. 삽입할 노드의 링크가 삽입될 위치의 후행 노드를 가리키게 한다
 3. 삽입될 위치의 선행 노드가 삽입할 노드를 가리키게 한다
 
+   ![https://velog.velcdn.com/images%2Fapril_5%2Fpost%2F3e85ab2a-172e-4177-9e93-6435bf559ea6%2Fimage.png](https://velog.velcdn.com/images%2Fapril_5%2Fpost%2F3e85ab2a-172e-4177-9e93-6435bf559ea6%2Fimage.png)
+
 삭제
 
 1. 삭제할 노드의 선행 노드의 링크가 삭제할 노드의 후 행 노드를 가리키게 한다
