@@ -2,8 +2,6 @@
 
 ---
 
-![try%20catch%E1%84%86%E1%85%AE%E1%86%AB%20b42fed4d442342dbb86d8bff27572e7f/Untitled.png]
-
 ```java
 try {
 
