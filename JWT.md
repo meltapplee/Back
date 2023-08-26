@@ -1,6 +1,6 @@
 # JWT
 
----
+
 
 **Json Web Token**
 
@@ -12,7 +12,7 @@ Json포맷을 이용하여 사용자에 대한 속성을 저장
 
 인가: 권한 생성
 
-![img1.daumcdn.png](JWT%2082cebd1aa07b4c0d8d832894eadf65bf/img1.daumcdn.png)
+![https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrdboS%2FbtqArUrgcMr%2FHWY80zNL9reAv6FeE6AYE1%2Fimg.png](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrdboS%2FbtqArUrgcMr%2FHWY80zNL9reAv6FeE6AYE1%2Fimg.png)
 
 ### **구조**
 
@@ -26,7 +26,7 @@ Json포맷을 이용하여 사용자에 대한 속성을 저장
     
     ex) JWT
     
-- `alg` : 해싱 알고리즘을 지정(토큰을 검증할 때 사용되는 signature부분에서 사용한ㄷ)
+- `alg` : 해싱 알고리즘을 지정(토큰을 검증할 때 사용되는 signature부분에서 사용한다)
     
     ex) HMAC SHA256 또는 RSA
     
@@ -45,6 +45,7 @@ Json포맷을 이용하여 사용자에 대한 속성을 저장
 - `개인 클레임`: 서로 정보를 공유하기 위해 생성된 사용자 지정 클레임
     
     ex) userId, userName
+  <br/> 
     
 
 **signature**
@@ -59,7 +60,11 @@ Json포맷을 이용하여 사용자에 대한 속성을 저장
 
 해싱: 해시 알고리즘을 사용하여 해시 코드를 얻는 과정
 
-파싱: 주어진 정보를 **내가 원하는 형태로 가공**하여 서버에서 불러들이는 것
+파싱: 주어진 정보를 **내가 원하는 형태로 가공**하여 서버에서 불러들이는 것  
+<br/>   
+
+  
+
 
 ### Access Token 사용 방법
 
