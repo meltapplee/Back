@@ -1,6 +1,5 @@
 # try catch문
 
----
 
 ```java
 try {
