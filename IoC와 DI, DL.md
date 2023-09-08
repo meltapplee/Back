@@ -1,6 +1,5 @@
 # IoC와 DI, DL
 
----
 
 ### IoC(****Inversion of Control)****
 
