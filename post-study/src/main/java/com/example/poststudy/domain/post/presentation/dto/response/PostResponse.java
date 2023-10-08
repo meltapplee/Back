@@ -1,4 +1,4 @@
-package com.example.poststudy.domain.dto.response;
+package com.example.poststudy.domain.post.presentation.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;

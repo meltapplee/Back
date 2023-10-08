@@ -1,4 +1,4 @@
-package com.example.poststudy.domain.dto.response;
+package com.example.poststudy.domain.post.presentation.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -13,18 +13,16 @@ public class PostListResponse {
     private final int totalPage;
     private final List<PostResponse> postResponse;
 
+    @Getter
     @Builder
     public static class PostResponse {
-
         private final Long id;
+        private final String userNickname;
+        private final String profile;
         private final String title;
+        private final String state;
+        private final String major;
+        private final String language;
         private final String createDate;
-
-        @Builder
-        public PostResponse(Long id, String title, String createDate) {
-            this.id = id;
-            this.title = title;
-            this.createDate = createDate;
-        }
     }
 }

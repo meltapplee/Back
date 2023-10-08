@@ -1,11 +1,11 @@
-package com.example.poststudy.domain.entity;
+package com.example.poststudy.domain.post.domain;
 
+import com.example.poststudy.domain.post.domain.type.ThemeType;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -26,17 +26,26 @@ public class Post {
     private String content;
 
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ThemeType theme;
+
+    @Column(nullable = false)
     private String createDate;
 
+    @ManyToOne
+    @JoinColumn
+
     @Builder
-    public Post(String title, String content, String createDate) {
+    public Post(String title, ThemeType theme, String content) {
         this.title = title;
+        this.theme = theme;
         this.content = content;
         this.createDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"));
     }
 
-    public void update(String title, String content) {
+    public void update(String title, ThemeType theme, String content) {
         this.title = title;
+        this.theme = theme;
         this.content = content;
     }
 }
