@@ -1,9 +1,9 @@
-package com.example.poststudy.domain.controller;
+package com.example.poststudy.domain.post.presentation;
 
-import com.example.poststudy.domain.dto.request.PostRequest;
-import com.example.poststudy.domain.dto.response.PostListResponse;
-import com.example.poststudy.domain.dto.response.PostResponse;
-import com.example.poststudy.domain.service.PostService;
+import com.example.poststudy.domain.post.presentation.dto.request.PostRequest;
+import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
+import com.example.poststudy.domain.post.presentation.dto.response.PostResponse;
+import com.example.poststudy.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -41,8 +41,8 @@ public class PostController {
     }
 
     @GetMapping("/search")
-    public PostListResponse findByTitle(@RequestParam(value = "title") String title, Pageable page) {
-        return  postService.findByTitle(title, page);
+    public PostListResponse findByTitle(@RequestParam(value = "title") String title, @RequestParam(value = "theme") String theme, Pageable page) {
+        return  postService.search(title, theme, page);
     }
 
     @GetMapping("/{id}")

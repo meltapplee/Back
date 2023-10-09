@@ -1,10 +1,11 @@
-package com.example.poststudy.domain.service;
+package com.example.poststudy.domain.post.service;
 
-import com.example.poststudy.domain.dto.request.PostRequest;
-import com.example.poststudy.domain.dto.response.PostListResponse;
-import com.example.poststudy.domain.dto.response.PostResponse;
-import com.example.poststudy.domain.entity.Post;
-import com.example.poststudy.domain.repository.PostRepository;
+import com.example.poststudy.domain.post.presentation.dto.request.PostRequest;
+import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
+import com.example.poststudy.domain.post.presentation.dto.response.PostResponse;
+import com.example.poststudy.domain.post.domain.Post;
+import com.example.poststudy.domain.post.domain.type.ThemeType;
+import com.example.poststudy.domain.post.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -31,7 +32,7 @@ public class PostService {
     public Long update(Long id, PostRequest request) {
         Post post = postRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("존재하지 않는 글 입니다."));
-        post.update(request.getTitle(), request.getContent());
+        post.update(request.getTitle(), ThemeType.valueOf(request.getTheme()), request.getContent());
         return post.getId();
     }
 
@@ -54,17 +55,6 @@ public class PostService {
                         .build()).collect(Collectors.toList()));
     }
 
-    @Transactional(readOnly = true)
-    public PostListResponse findByTitle(String title, Pageable page){
-        Page<Post> posts = postRepository.findAllByTitleContainingOrderByCreateDateDesc(title, page);
-
-        return new PostListResponse(posts.getTotalPages(),
-                posts.stream().map(post -> PostListResponse.PostResponse.builder()
-                        .id(post.getId())
-                        .title(post.getTitle())
-                        .createDate(post.getCreateDate())
-                        .build()).collect(Collectors.toList()));
-    }
 
     @Transactional(readOnly = true)
     public PostResponse getPostById(Long id){
