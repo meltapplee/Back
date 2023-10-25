@@ -1,4 +1,4 @@
-package com.example.poststudy.domain.user.service;
+package com.dsm.up_backend_v2.domain.user.service;
 
 import com.dsm.up_backend_v2.domain.user.domain.RefreshToken;
 import com.dsm.up_backend_v2.domain.user.domain.repository.RefreshTokenRepository;

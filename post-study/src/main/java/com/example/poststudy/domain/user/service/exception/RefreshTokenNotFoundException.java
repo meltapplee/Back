@@ -1,4 +1,4 @@
-package com.example.poststudy.domain.user.service.exception;
+package com.dsm.up_backend_v2.domain.user.service.exception;
 
 import com.dsm.up_backend_v2.global.error.exception.BaseException;
 import com.dsm.up_backend_v2.global.error.exception.ErrorCode;

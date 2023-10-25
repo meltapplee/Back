@@ -1,12 +1,12 @@
-package com.example.poststudy.domain.user.service.exception;
+package com.dsm.up_backend_v2.domain.user.service.exception;
 
-import com.example.poststudy.global.error.CustomException;
-import com.example.poststudy.global.error.ErrorCode;
+import com.dsm.up_backend_v2.global.error.exception.BaseException;
+import com.dsm.up_backend_v2.global.error.exception.ErrorCode;
 
-public class PasswordMisMatchException extends CustomException {
-    public static final CustomException EXCEPTION = new PasswordMisMatchException();
+public class PasswordMisMatchException extends BaseException {
+    public static final BaseException EXCEPTION = new PasswordMisMatchException();
 
     public PasswordMisMatchException() {
-        super(ErrorCode.PASSWORD_CHECK_MISMATCH);
+        super(ErrorCode.PASSWORD_MISMATCH);
     }
 }
