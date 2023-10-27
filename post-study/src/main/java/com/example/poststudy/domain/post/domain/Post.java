@@ -1,6 +1,7 @@
 package com.example.poststudy.domain.post.domain;
 
 import com.example.poststudy.domain.post.domain.type.ThemeType;
+import com.example.poststudy.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -33,7 +34,8 @@ public class Post {
     private String createDate;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "accountId")
+    private User user;
 
     @Builder
     public Post(String title, ThemeType theme, String content) {

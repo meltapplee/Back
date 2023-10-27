@@ -1,13 +1,14 @@
-package com.dsm.up_backend_v2.domain.user.presentation;
+package com.example.poststudy.domain.user.presentation;
 
-import com.dsm.up_backend_v2.domain.user.presentation.dto.request.LoginRequest;
-import com.dsm.up_backend_v2.domain.user.presentation.dto.request.SignupRequest;
-import com.dsm.up_backend_v2.domain.user.presentation.dto.response.TokenResponse;
-import com.dsm.up_backend_v2.domain.user.service.AccountIdExistService;
-import com.dsm.up_backend_v2.domain.user.service.LoginService;
-import com.dsm.up_backend_v2.domain.user.service.LogoutService;
-import com.dsm.up_backend_v2.domain.user.service.RefreshService;
-import com.dsm.up_backend_v2.domain.user.service.SignUpService;
+import com.example.poststudy.domain.user.presentation.dto.request.LoginRequest;
+import com.example.poststudy.domain.user.presentation.dto.request.SignupRequest;
+import com.example.poststudy.domain.user.presentation.dto.response.TokenResponse;
+import com.example.poststudy.domain.user.service.AccountIdExistService;
+import com.example.poststudy.domain.user.service.LoginService;
+import com.example.poststudy.domain.user.service.LogoutService;
+import com.example.poststudy.domain.user.service.RefreshService;
+import com.example.poststudy.domain.user.service.SignUpService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/user")
@@ -32,7 +31,6 @@ public class UserController {
     private final LoginService loginService;
     private final AccountIdExistService accountIdExistService;
     private final LogoutService logoutService;
-
     private final RefreshService refreshService;
 
     @PostMapping("/signup")

@@ -5,6 +5,7 @@ import com.example.poststudy.global.security.exception.JwtInvalidException;
 import com.example.poststudy.global.security.exception.NotAccessTokenException;
 import com.example.poststudy.global.security.exception.TokenErrorException;
 import com.example.poststudy.global.security.exception.TokenUnauthorizedException;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Header;
 import io.jsonwebtoken.SignatureAlgorithm;

@@ -1,7 +1,6 @@
 package com.example.poststudy.global.error;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 @Getter
 public class CustomException extends RuntimeException{

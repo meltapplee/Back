@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class PostListService {
@@ -23,20 +25,16 @@ public class PostListService {
             posts = postRepository.findAllByTitleContainingOrderByCreateDateDesc(title, page);
         }
 
-        return new PostListResponse(posts.getTotalPages(), );
+        return new PostListResponse(posts.getTotalPages(), posts.stream().map(this::sort).collect(Collectors.toList()));
     }
 
     public PostListResponse.PostResponse sort(Post post) {
         return PostListResponse.PostResponse.builder()
                 .id(post.getId())
-                .userNickname(post.get)
+                .userNickname(post.getUser().getNickname())
+                .title(post.getTitle())
+                .theme(String.valueOf(post.getTheme()))
+                .createDate(post.getCreateDate())
+                .build();
     }
-    private final Long id;
-    private final String userNickname;
-    private final String profile;
-    private final String title;
-    private final String state;
-    private final String major;
-    private final String language;
-    private final String createDate;
 }

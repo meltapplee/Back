@@ -1,6 +1,7 @@
-package com.dsm.up_backend_v2.domain.user.domain.repository;
+package com.example.poststudy.domain.user.domain.repository;
 
-import com.dsm.up_backend_v2.domain.user.domain.RefreshToken;
+
+import com.example.poststudy.domain.user.domain.RefreshToken;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

@@ -1,9 +1,8 @@
-package com.dsm.up_backend_v2.domain.user.presentation.dto.request;
+package com.example.poststudy.domain.user.presentation.dto.request;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
-
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 @Getter
 public class LoginRequest {

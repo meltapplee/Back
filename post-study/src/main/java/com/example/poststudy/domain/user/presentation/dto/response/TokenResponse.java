@@ -1,4 +1,4 @@
-package com.dsm.up_backend_v2.domain.user.presentation.dto.response;
+package com.example.poststudy.domain.user.presentation.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;

@@ -4,13 +4,12 @@ import com.example.poststudy.domain.post.presentation.dto.request.PostRequest;
 import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
 import com.example.poststudy.domain.post.presentation.dto.response.PostResponse;
 import com.example.poststudy.domain.post.service.PostService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @RequestMapping("/post")
 @RequiredArgsConstructor
@@ -38,11 +37,6 @@ public class PostController {
     @GetMapping
     public PostListResponse getAllPost(Pageable page) {
         return postService.getAllPost(page);
-    }
-
-    @GetMapping("/search")
-    public PostListResponse findByTitle(@RequestParam(value = "title") String title, @RequestParam(value = "theme") String theme, Pageable page) {
-        return  postService.search(title, theme, page);
     }
 
     @GetMapping("/{id}")
