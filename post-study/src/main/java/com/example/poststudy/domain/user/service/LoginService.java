@@ -1,10 +1,12 @@
 package com.example.poststudy.domain.user.service;
+import com.example.poststudy.domain.user.domain.RefreshToken;
 import com.example.poststudy.domain.user.domain.User;
 import com.example.poststudy.domain.user.domain.repository.RefreshTokenRepository;
 import com.example.poststudy.domain.user.domain.repository.UserRepository;
 import com.example.poststudy.domain.user.presentation.dto.request.LoginRequest;
 import com.example.poststudy.domain.user.presentation.dto.response.TokenResponse;
 import com.example.poststudy.domain.user.service.exception.PasswordMisMatchException;
+import com.example.poststudy.domain.user.service.exception.UserNotFoundException;
 import com.example.poststudy.global.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

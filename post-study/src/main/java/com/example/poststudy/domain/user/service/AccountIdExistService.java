@@ -1,6 +1,7 @@
 package com.example.poststudy.domain.user.service;
 
 import com.example.poststudy.domain.user.domain.repository.UserRepository;
+import com.example.poststudy.domain.user.service.exception.AccountIdAlreadyExistException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,6 +13,6 @@ public class AccountIdExistService {
     private final UserRepository userRepository;
 
     public void exist(String accountId) {
-        if (userRepository.existsByAccountId(accountId)) throw new UserAlreadyExistException.EXCEPTION();
+        if (userRepository.existsByAccountId(accountId)) throw AccountIdAlreadyExistException.EXCEPTION;
     }
 }

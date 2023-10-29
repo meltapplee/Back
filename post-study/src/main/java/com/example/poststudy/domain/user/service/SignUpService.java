@@ -26,6 +26,8 @@ public class SignUpService {
     public TokenResponse signUp(SignupRequest request) {
         accountIdExistService.exist(request.getAccountId());
 
+        System.out.println(request.getAccountId());
+
         User user = userRepository.save(User.builder()
                 .nickname(request.getNickname())
                     .accountId(request.getAccountId())
