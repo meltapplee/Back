@@ -1,7 +1,7 @@
 package com.example.poststudy.domain.user.service.exception;
 
-import com.example.poststudy.global.error.CustomException;
-import com.example.poststudy.global.error.ErrorCode;
+import com.example.poststudy.global.error.exception.CustomException;
+import com.example.poststudy.global.error.exception.ErrorCode;
 
 public class UserNotFoundException extends CustomException {
     public static final UserNotFoundException EXCEPTION = new UserNotFoundException();

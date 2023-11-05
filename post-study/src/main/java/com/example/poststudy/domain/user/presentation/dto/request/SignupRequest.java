@@ -1,8 +1,10 @@
 package com.example.poststudy.domain.user.presentation.dto.request;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 @Getter
 public class SignupRequest {
 
@@ -11,10 +13,10 @@ public class SignupRequest {
     private String accountId;
 
     @NotBlank
-    @Size(min = 6, max = 20)
-    private String password;
-
-    @NotBlank
     @Size(min = 2, max = 12)
     private String nickname;
+
+    @NotBlank
+    @Size(min = 6, max = 20)
+    private String password;
 }

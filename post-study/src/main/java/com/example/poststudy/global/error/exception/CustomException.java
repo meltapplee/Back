@@ -1,4 +1,4 @@
-package com.example.poststudy.global.error;
+package com.example.poststudy.global.error.exception;
 
 import lombok.Getter;
 
