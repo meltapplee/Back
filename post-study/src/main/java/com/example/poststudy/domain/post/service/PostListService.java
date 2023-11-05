@@ -31,7 +31,7 @@ public class PostListService {
     public PostListResponse.PostResponse sort(Post post) {
         return PostListResponse.PostResponse.builder()
                 .id(post.getId())
-                .userNickname(post.getUser().getNickname())
+                .nickname(post.getUser().getNickname())
                 .title(post.getTitle())
                 .theme(String.valueOf(post.getTheme()))
                 .createDate(post.getCreateDate())

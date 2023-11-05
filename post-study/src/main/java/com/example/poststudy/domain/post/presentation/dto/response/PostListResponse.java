@@ -17,7 +17,7 @@ public class PostListResponse {
     @Builder
     public static class PostResponse {
         private final Long id;
-        private final String userNickname;
+        private final String nickname;
         private final String title;
         private final String theme;
         private final String createDate;
