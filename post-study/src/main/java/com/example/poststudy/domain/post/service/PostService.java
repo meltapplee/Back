@@ -25,6 +25,7 @@ public class PostService {
         return postRepository.save(Post.builder()
                 .title(request.getTitle())
                 .content(request.getContent())
+                .theme(ThemeType.valueOf(request.getTheme()))
                 .build()).getId();
     }
 

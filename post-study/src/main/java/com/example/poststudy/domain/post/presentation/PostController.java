@@ -21,6 +21,7 @@ public class PostController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Long create(@RequestBody @Valid PostRequest request) {
+        System.out.println(request.getTheme());
         return postService.create(request);
     }
 
