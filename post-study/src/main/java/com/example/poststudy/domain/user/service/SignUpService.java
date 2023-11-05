@@ -16,30 +16,27 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 public class SignUpService {
-
-    private final UserRepository userRepository;
-    private final RefreshTokenRepository refreshTokenRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final JwtProvider jwtProvider;
     private final AccountIdExistService accountIdExistService;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final RefreshTokenRepository refreshTokenRepository;
+    private final JwtProvider jwtProvider;
 
     public TokenResponse signUp(SignupRequest request) {
         accountIdExistService.exist(request.getAccountId());
 
-        System.out.println(request.getAccountId());
-
         User user = userRepository.save(User.builder()
+                .accountId(request.getAccountId())
                 .nickname(request.getNickname())
-                    .accountId(request.getAccountId())
-                    .password(passwordEncoder.encode(request.getPassword()))
+                .password(passwordEncoder.encode(request.getPassword()))
                 .build());
 
         return TokenResponse.builder()
-                .accessToken(jwtProvider.generateToken(user.getAccountId()))
                 .refreshToken(refreshTokenRepository.save(RefreshToken.builder()
-                    .accountId(user.getAccountId())
-                    .refreshToken(jwtProvider.generateRefreshToken(user.getAccountId()))
-                    .build()).getRefreshToken())
+                        .accountId(user.getAccountId())
+                        .refreshToken(jwtProvider.generateRefreshToken(user.getAccountId()))
+                        .build()).getRefreshToken())
+                .accessToken(jwtProvider.generateToken(user.getAccountId()))
                 .build();
     }
 }
