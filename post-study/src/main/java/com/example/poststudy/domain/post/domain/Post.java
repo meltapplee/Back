@@ -46,7 +46,8 @@ public class Post {
     private User user;
 
     @Builder
-    public Post(String title, ThemeType theme, String content) {
+    public Post(User user, String title, ThemeType theme, String content) {
+        this.user = user;
         this.title = title;
         this.theme = theme;
         this.content = content;

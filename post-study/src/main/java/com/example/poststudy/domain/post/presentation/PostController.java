@@ -7,7 +7,15 @@ import com.example.poststudy.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -25,7 +33,7 @@ public class PostController {
         return postService.create(request);
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
     public Long update(@PathVariable @NotNull Long id, @RequestBody @Valid PostRequest request) {
         return postService.update(id, request);
     }
@@ -42,7 +50,7 @@ public class PostController {
     }
 
     @GetMapping("/{id}")
-    public PostResponse getPostById(@PathVariable @NotNull Long id){
+    public PostResponse getPostDetails(@PathVariable @NotNull Long id){
         return postService.getPostById(id);
     }
 }
