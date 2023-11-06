@@ -4,6 +4,7 @@ import com.example.poststudy.domain.post.domain.Post;
 import com.example.poststudy.domain.post.domain.repository.PostRepository;
 import com.example.poststudy.domain.post.domain.type.ThemeType;
 import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
+import com.example.poststudy.domain.user.service.util.UserUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 @Service
 public class PostListService {
     private final PostRepository postRepository;
+    private final UserUtil userUtil;
 
     public PostListResponse findPost(String title, String theme, Pageable page){
         Page<Post> posts;
@@ -24,6 +26,12 @@ public class PostListService {
         else {
             posts = postRepository.findAllByTitleContainingOrderByCreateDateDesc(title, page);
         }
+
+        return new PostListResponse(posts.getTotalPages(), posts.stream().map(this::sort).collect(Collectors.toList()));
+    }
+
+    public PostListResponse findPostByUser(Pageable page){
+        Page<Post> posts = postRepository.findAllByUserOrderByCreateDate(userUtil.findUser(), page);
 
         return new PostListResponse(posts.getTotalPages(), posts.stream().map(this::sort).collect(Collectors.toList()));
     }

@@ -3,6 +3,7 @@ package com.example.poststudy.domain.post.presentation;
 import com.example.poststudy.domain.post.presentation.dto.request.PostRequest;
 import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
 import com.example.poststudy.domain.post.presentation.dto.response.PostResponse;
+import com.example.poststudy.domain.post.service.PostListService;
 import com.example.poststudy.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -25,6 +26,7 @@ import javax.validation.constraints.NotNull;
 @RestController
 public class PostController {
     private final PostService postService;
+    private final PostListService postListService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -52,5 +54,10 @@ public class PostController {
     @GetMapping("/{id}")
     public PostResponse getPostDetails(@PathVariable @NotNull Long id){
         return postService.getPostById(id);
+    }
+
+    @GetMapping("/user")
+    public PostListResponse getPostByUser(Pageable pageable) {
+        return postListService.findPostByUser(pageable);
     }
 }
