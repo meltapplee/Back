@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -59,5 +60,10 @@ public class PostController {
     @GetMapping("/user")
     public PostListResponse getPostByUser(Pageable pageable) {
         return postListService.findPostByUser(pageable);
+    }
+
+    @GetMapping("/search")
+    public PostListResponse search(@RequestParam(value = "theme") String theme, @RequestParam(value = "title") String title, Pageable pageable) {
+        return postListService.findPost(title, theme, pageable);
     }
 }
