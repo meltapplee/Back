@@ -1,4 +1,4 @@
-package com.example.poststudy.domain.user.service.exception;
+package com.example.poststudy.domain.user.exception;
 
 import com.example.poststudy.global.error.exception.CustomException;
 import com.example.poststudy.global.error.exception.ErrorCode;

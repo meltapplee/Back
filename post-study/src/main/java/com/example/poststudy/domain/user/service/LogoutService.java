@@ -2,7 +2,7 @@ package com.example.poststudy.domain.user.service;
 
 import com.example.poststudy.domain.user.domain.RefreshToken;
 import com.example.poststudy.domain.user.domain.repository.RefreshTokenRepository;
-import com.example.poststudy.domain.user.service.exception.UserNotFoundException;
+import com.example.poststudy.domain.user.exception.UserNotFoundException;
 import com.example.poststudy.domain.user.service.util.UserUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

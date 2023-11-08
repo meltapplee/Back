@@ -2,7 +2,7 @@ package com.example.poststudy.domain.user.service.util;
 
 import com.example.poststudy.domain.user.domain.User;
 import com.example.poststudy.domain.user.domain.repository.UserRepository;
-import com.example.poststudy.domain.user.service.exception.UserNotFoundException;
+import com.example.poststudy.domain.user.exception.UserNotFoundException;
 import com.example.poststudy.global.security.exception.JwtInvalidException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;

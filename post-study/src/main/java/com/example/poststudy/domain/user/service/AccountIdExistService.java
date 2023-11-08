@@ -1,7 +1,7 @@
 package com.example.poststudy.domain.user.service;
 
 import com.example.poststudy.domain.user.domain.repository.UserRepository;
-import com.example.poststudy.domain.user.service.exception.AccountIdAlreadyExistException;
+import com.example.poststudy.domain.user.exception.AccountIdAlreadyExistException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

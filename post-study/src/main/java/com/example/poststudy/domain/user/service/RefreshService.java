@@ -3,7 +3,7 @@ package com.example.poststudy.domain.user.service;
 import com.example.poststudy.domain.user.domain.RefreshToken;
 import com.example.poststudy.domain.user.domain.repository.RefreshTokenRepository;
 import com.example.poststudy.domain.user.presentation.dto.response.TokenResponse;
-import com.example.poststudy.domain.user.service.exception.RefreshTokenNotFoundException;
+import com.example.poststudy.domain.user.exception.RefreshTokenNotFoundException;
 import com.example.poststudy.global.security.exception.JwtInvalidException;
 import com.example.poststudy.global.security.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
