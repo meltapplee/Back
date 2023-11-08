@@ -1,5 +1,6 @@
 package com.example.poststudy.domain.post.domain;
 
+import com.example.poststudy.domain.comment.domin.Comment;
 import com.example.poststudy.domain.post.domain.type.ThemeType;
 import com.example.poststudy.domain.user.domain.User;
 import lombok.AccessLevel;
@@ -7,6 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -16,8 +18,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -45,6 +50,9 @@ public class Post {
     @JoinColumn(name = "accountId")
     private User user;
 
+    @OneToMany(mappedBy = "post", cascade = CascadeType.REMOVE)
+    private List<Comment> comments = new ArrayList<>();
+
     @Builder
     public Post(User user, String title, ThemeType theme, String content) {
         this.user = user;
@@ -54,9 +62,10 @@ public class Post {
         this.createDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy년 M월 d일"));
     }
 
-    public void update(String title, ThemeType theme, String content) {
+    public Long update(String title, ThemeType theme, String content) {
         this.title = title;
         this.theme = theme;
         this.content = content;
+        return this.id;
     }
 }
