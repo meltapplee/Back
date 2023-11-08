@@ -3,6 +3,7 @@ package com.example.poststudy.domain.post.presentation;
 import com.example.poststudy.domain.post.presentation.dto.request.PostRequest;
 import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
 import com.example.poststudy.domain.post.presentation.dto.response.PostResponse;
+import com.example.poststudy.domain.post.presentation.dto.response.ReturnIdResponse;
 import com.example.poststudy.domain.post.service.PostListService;
 import com.example.poststudy.domain.post.service.PostService;
 import lombok.RequiredArgsConstructor;
@@ -31,8 +32,7 @@ public class PostController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Long create(@RequestBody @Valid PostRequest request) {
-        System.out.println(request.getTheme());
+    public ReturnIdResponse create(@RequestBody @Valid PostRequest request) {
         return postService.create(request);
     }
 

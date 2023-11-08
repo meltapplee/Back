@@ -1,12 +1,13 @@
 package com.example.poststudy.domain.post.service;
 
+import com.example.poststudy.domain.comment.presentation.response.CommentResponse;
 import com.example.poststudy.domain.post.presentation.dto.request.PostRequest;
 import com.example.poststudy.domain.post.presentation.dto.response.PostListResponse;
 import com.example.poststudy.domain.post.presentation.dto.response.PostResponse;
 import com.example.poststudy.domain.post.domain.Post;
 import com.example.poststudy.domain.post.domain.type.ThemeType;
 import com.example.poststudy.domain.post.domain.repository.PostRepository;
-import com.example.poststudy.domain.user.domain.repository.UserRepository;
+import com.example.poststudy.domain.post.presentation.dto.response.ReturnIdResponse;
 import com.example.poststudy.domain.user.service.util.UserUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,21 +25,22 @@ public class PostService {
     private final UserUtil userUtil;
 
     @Transactional
-    public Long create(PostRequest request) {
-        return postRepository.save(Post.builder()
+    public ReturnIdResponse create(PostRequest request) {
+        Post post = postRepository.save(Post.builder()
                 .user(userUtil.findUser())
                 .title(request.getTitle())
                 .content(request.getContent())
                 .theme(ThemeType.valueOf(request.getTheme()))
-                .build()).getId();
+                .build());
+        return new ReturnIdResponse(post.getId());
     }
 
     @Transactional
     public Long update(Long id, PostRequest request) {
         Post post = postRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("존재하지 않는 글 입니다."));
-        post.update(request.getTitle(), ThemeType.valueOf(request.getTheme()), request.getContent());
-        return post.getId();
+
+        return post.update(request.getTitle(), ThemeType.valueOf(request.getTheme()), request.getContent());
     }
 
     @Transactional
@@ -72,6 +74,14 @@ public class PostService {
                 .title(post.getTitle())
                 .content(post.getContent())
                 .createDate(post.getCreateDate())
+                .comments(post.getComments().stream().map(comment -> {
+                    return CommentResponse.builder()
+                            .id(comment.getId())
+                            .userNickname(comment.getUser().getNickname())
+                            .content(comment.getContent())
+                            .date(comment.getDate())
+                            .build();
+                }).collect(Collectors.toList()))
                 .build();
     }
 }
