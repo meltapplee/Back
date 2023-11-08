@@ -19,12 +19,13 @@ public enum ErrorCode {
     JWT_INVALID(401, "토큰이 유효하지 않습니다."),
 
     // Forbidden
-    BOARD_WRITER_MISMATCH(403, "작성자가 일치하지 않습니다"),
+    WRITER_MISMATCH(403, "작성자가 일치하지 않습니다"),
     NO_PERMISSION(403, "권한이 없습니다."),
 
     // Not Found
     USER_NOT_FOUND(404,"찾을 수 없는 유저입니다."),
     POST_NOT_FOUND(404, "찾을 수 없는 게시글 입니다."),
+    COMMENT_NOT_FOUND(404, "찾을 수 없는 댓글 입니다."),
     TOKEN_NOT_FOUND(404, "찾을 수 없는 토큰 입니다."),
     REFRESH_NOT_FOUND(404, "리프레시 토큰을 찾을 수 없습니다"),
 
