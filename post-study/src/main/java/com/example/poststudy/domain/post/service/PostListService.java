@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.stream.Collectors;
 
@@ -28,6 +29,20 @@ public class PostListService {
         }
 
         return new PostListResponse(posts.getTotalPages(), posts.stream().map(this::sort).collect(Collectors.toList()));
+    }
+
+    @Transactional(readOnly = true)
+    public PostListResponse getAllPost(Pageable page) {
+        Page<Post> posts = postRepository.findAllByOrderByCreateDateDesc(page);
+
+        return new PostListResponse(posts.getTotalPages(),
+                posts.stream().map(post -> PostListResponse.PostResponse.builder()
+                        .id(post.getId())
+                        .nickname(post.getUser().getNickname())
+                        .title(post.getTitle())
+                        .theme(String.valueOf(post.getTheme()))
+                        .createDate(post.getCreateDate())
+                        .build()).collect(Collectors.toList()));
     }
 
     public PostListResponse findPostByUser(Pageable page){

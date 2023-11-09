@@ -49,12 +49,12 @@ public class PostController {
 
     @GetMapping
     public PostListResponse getAllPost(Pageable page) {
-        return postService.getAllPost(page);
+        return postListService.getAllPost(page);
     }
 
     @GetMapping("/{id}")
     public PostResponse getPostDetails(@PathVariable @NotNull Long id){
-        return postService.getPostById(id);
+        return postService.getPostDetails(id);
     }
 
     @GetMapping("/user")

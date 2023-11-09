@@ -51,21 +51,7 @@ public class PostService {
     }
 
     @Transactional(readOnly = true)
-    public PostListResponse getAllPost(Pageable page) {
-        Page<Post> posts = postRepository.findAllByOrderByCreateDateDesc(page);
-
-        return new PostListResponse(posts.getTotalPages(),
-                posts.stream().map(post -> PostListResponse.PostResponse.builder()
-                        .id(post.getId())
-                        .nickname(post.getUser().getNickname())
-                        .title(post.getTitle())
-                        .theme(String.valueOf(post.getTheme()))
-                        .createDate(post.getCreateDate())
-                        .build()).collect(Collectors.toList()));
-    }
-
-    @Transactional(readOnly = true)
-    public PostResponse getPostById(Long id){
+    public PostResponse getPostDetails(Long id){
         Post post = postRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 글 입니다."));
         return PostResponse.builder()
