@@ -1,21 +1,18 @@
 server:
-  port: 8081
+  port: 8080
 
 spring:
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://localhost:3306/study_spring
+    username: root
+    password: meltapplee0!
     driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+    ddl-auto: update
+    generate-ddl: true
 
   jwt:
-    key: ${JWT_SECRET_KEY}
-    access: ${JWT_ACCESS}
-    refresh: ${JWT_REFRESH}
-
-  jpa:
-    database:
-    database-platform: org.hibernate.dialect.MySQLDialect
-    generate-ddl: true
-    hibernate:
-      ddl-auto: update
+    key: kfjkljfkljklmclkdckmdlkhgjjfkklgjlkjfdmcldkfjkljfkljklmclkdckmdlkhgjjfkklgjlkjfdmcld
+    access: 1800
+    refresh: 604800
